@@ -8,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class LayoutPageComponent {
 
+  public sidebarItems = [
+    { label: 'Log In', icon: 'label', url:'./login' },
+    { label: 'Sign Up', icon: 'label', url:'./sign' },
+  ]
+
 }
