@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { BackendService } from 'src/app/services/app.service';
+import { User } from '../../interfaces/auth.interface';
 
 @Component({
   selector: 'app-login-page',
@@ -7,5 +9,19 @@ import { Component } from '@angular/core';
   ]
 })
 export class LoginPageComponent {
+
+  user!: User
+
+  constructor( private miBackendService: BackendService) {}
+
+  testRice(){
+    this.miBackendService.getTest()
+    .subscribe( resultado =>{
+      this.user = resultado;
+    })
+
+    console.log(this.user.userName);
+
+  }
 
 }
