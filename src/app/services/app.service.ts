@@ -18,8 +18,8 @@ export class BackendService {
         return this.http.get<User>(url)
     }
 
-    postTest(){
-        const data = {"userName": "juanRicoAlex", "email": "ayYico", "password":"passinga"};
+    postTest(userNameGiven: String, emailGiven: String, passwordGiven: String ){
+        const data = {"userName": userNameGiven, "email": emailGiven, "password": passwordGiven};
         let config = { headers: new HttpHeaders().set("Content-Type", "application/json") };
         const url = `${this.backendApiUrl}/testTwo`;
         return this.http.post(url, data, config).subscribe(

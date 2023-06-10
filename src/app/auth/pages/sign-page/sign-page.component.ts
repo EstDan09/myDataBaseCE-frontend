@@ -8,8 +8,10 @@ import { Component } from '@angular/core';
 })
 export class SignPageComponent {
 
-  createUser(){
+  constructor( private miBackendService: BackendService) {}
 
+  createUser(userNameGiven: String){
+    console.log(userNameGiven)
   }
 
 }
