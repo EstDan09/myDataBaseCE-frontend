@@ -25,7 +25,7 @@ export class LoginPageComponent {
   }
 
   testPost(){
-    this.miBackendService.postTest();
+    //this.miBackendService.postTest();
   }
 
 }

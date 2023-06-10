@@ -4,3 +4,7 @@ export interface User {
     password:    string;
 
 }
+
+export interface InfoForTable {
+    info:        string[];
+}

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { User } from '../auth/interfaces/auth.interface';
+import { InfoForTable, User } from '../auth/interfaces/auth.interface';
 
 @Injectable({
     providedIn: 'root'
@@ -14,14 +14,35 @@ export class BackendService {
     constructor(private http: HttpClient) { }
 
     getTest(): Observable<User>{
-        const url = `${this.backendApiUrl}/testOne`;
+        const url = `${this.backendApiUrl}/get-user`;
         return this.http.get<User>(url)
     }
 
-    postTest(userNameGiven: String, emailGiven: String, passwordGiven: String ){
+    postTest(userNameGiven: String, emailGiven: String, passwordGiven: String){
         const data = {"userName": userNameGiven, "email": emailGiven, "password": passwordGiven};
         let config = { headers: new HttpHeaders().set("Content-Type", "application/json") };
-        const url = `${this.backendApiUrl}/testTwo`;
+        const url = `${this.backendApiUrl}/create-user`;
+        return this.http.post(url, data, config).subscribe(
+            res =>{
+                console.log(res);
+            },
+            err => {
+                console.log(err.message);
+            }
+        )
+    }
+
+    getTest2(): Observable<string[]>{
+        const url = `${this.backendApiUrl}/get-tables`;
+        return this.http.get<string[]>(url)
+
+        
+    }
+
+    postTest2(dataGiven: String){
+        const data = {"container": dataGiven};
+        let config = { headers: new HttpHeaders().set("Content-Type", "application/json") };
+        const url = `${this.backendApiUrl}/send-commit`;
         return this.http.post(url, data, config).subscribe(
             res =>{
                 console.log(res);
