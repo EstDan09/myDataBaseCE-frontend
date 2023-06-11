@@ -1,1 +1,64 @@
-<p>main-page works!</p>
+
+<div>
+    <mat-sidenav-container fullscreen>
+
+        <mat-sidenav #sidenav mode="push" [ngStyle]="{width:'250px'}">
+            
+            <mat-toolbar>
+    
+                <span>Tablas Creadas</span>
+                <span class="spacer"></span>
+            
+                <button mat-icon-button (clcik)="sidenav.toggle()">
+                    <mat-icon>menu</mat-icon>
+                </button>
+    
+            </mat-toolbar>
+    
+            <mat-nav-list>
+                <mat-list-item *ngFor="let item of words"
+                (click)="sidenav.toggle()"
+                >
+                    <mat-icon>label</mat-icon>
+                    {{ item }}
+                </mat-list-item>
+            </mat-nav-list>
+    
+        </mat-sidenav>
+    
+        <mat-toolbar color="primary">
+            
+            <button mat-icon-button (click)="sidenav.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+    
+            <span>MyDataBaseCE</span>
+    
+        </mat-toolbar>
+    
+        <div class="container">
+            <div class="grid p-3">
+                <div class="col-12 mt-5 md:col-6 md:col-offset-3 md:mt-8">
+                    <div class="relativeTextField">
+
+                        <textarea name="textArea" id="textAreaId" cols="100" rows="20" #textArea1></textarea>
+
+                        <button mat-button mat-flat-button color="primary" (click)="sendCommit(textArea1.value)" >
+                            Commit
+                        </button>
+
+                        <button mat-button mat-flat-button color="primary" (click)="diosPorfa()" >
+                            test
+                        </button>
+
+                        <app-card *ngFor="let heroe of colData"[columna]="heroe"></app-card>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </mat-sidenav-container>
+</div>

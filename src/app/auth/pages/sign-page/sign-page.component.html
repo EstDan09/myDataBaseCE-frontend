@@ -6,25 +6,25 @@
 
     <mat-form-field>
         <mat-label>Username</mat-label>
-        <input type="text" matInput placeholder="Your username">
+        <input type="text" matInput placeholder="Your username" #input1 >
     </mat-form-field>
 
     <mat-form-field>
         <mat-label>E-mail</mat-label>
-        <input type="text" matInput placeholder="Your e-mail">
+        <input type="text" matInput placeholder="Your e-mail" #input2>
     </mat-form-field>
 
     <mat-form-field>
         <mat-label>Password</mat-label>
-        <input type="password" matInput placeholder="Your password">
+        <input type="password" matInput placeholder="Your password" #input3>
     </mat-form-field>
 
     <mat-form-field>
         <mat-label>Confirm Password</mat-label>
-        <input type="password" matInput placeholder="Confirm your password">
+        <input type="password" matInput placeholder="Confirm your password" #input4>
     </mat-form-field>
 
-    <button mat-button mat-flat-button color="primary">
+    <button mat-button mat-flat-button color="primary" (click)="createUser(input1.value, input2.value, input3.value)">
         Enter
     </button>
 

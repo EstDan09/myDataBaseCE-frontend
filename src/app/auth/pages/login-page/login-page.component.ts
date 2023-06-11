@@ -14,8 +14,8 @@ export class LoginPageComponent {
 
   constructor( private miBackendService: BackendService) {}
 
-  testRice(){
-    this.miBackendService.getTest()
+  getUser(){
+    this.miBackendService.getUser()
     .subscribe( resultado =>{
       this.user = resultado;
     })
@@ -25,7 +25,7 @@ export class LoginPageComponent {
   }
 
   testPost(){
-    this.miBackendService.postTest();
+    //this.miBackendService.postTest();
   }
 
 }
