@@ -9,7 +9,7 @@
                 <span>Tablas Creadas</span>
                 <span class="spacer"></span>
             
-                <button mat-icon-button (clcik)="sidenav.toggle()">
+                <button mat-icon-button (click)="sidenav.toggle()">
                     <mat-icon>menu</mat-icon>
                 </button>
     
@@ -17,7 +17,7 @@
     
             <mat-nav-list>
                 <mat-list-item *ngFor="let item of words"
-                (click)="sidenav.toggle()"
+                (click)="sidenav.toggle(); diosPorfa(item)"
                 >
                     <mat-icon>label</mat-icon>
                     {{ item }}
@@ -47,9 +47,7 @@
                             Commit
                         </button>
 
-                        <button mat-button mat-flat-button color="primary" (click)="diosPorfa()" >
-                            test
-                        </button>
+                        
 
                         <app-card *ngFor="let heroe of colData"[columna]="heroe"></app-card>
 
