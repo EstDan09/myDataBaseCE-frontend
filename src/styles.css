@@ -13,3 +13,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     left: 90px;
     bottom:90px;
 }
+
+.inline-block {
+    display: inline-block;
+  }

@@ -42,9 +42,18 @@
                     <div class="relativeTextField">
 
                         <textarea name="textArea" id="textAreaId" cols="100" rows="20" #textArea1></textarea>
+
                         <button mat-button mat-flat-button color="primary" (click)="sendCommit(textArea1.value)" >
                             Commit
                         </button>
+
+                        <button mat-button mat-flat-button color="primary" (click)="diosPorfa()" >
+                            test
+                        </button>
+
+                        <app-card *ngFor="let heroe of colData"[columna]="heroe"></app-card>
+
+
 
                     </div>
                 </div>

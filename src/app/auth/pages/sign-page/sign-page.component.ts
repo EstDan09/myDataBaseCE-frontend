@@ -21,7 +21,7 @@ export class SignPageComponent {
     this.emailGiven = emailGiven
     this.passwordGIven = passwordGiven
     console.log(userNameGiven)
-    this.miBackendService.postTest(userNameGiven, emailGiven, passwordGiven);
+    this.miBackendService.sendUsers(userNameGiven, emailGiven, passwordGiven);
   }
 
   

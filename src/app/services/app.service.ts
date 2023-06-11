@@ -13,12 +13,12 @@ export class BackendService {
 
     constructor(private http: HttpClient) { }
 
-    getTest(): Observable<User>{
+    getUser(): Observable<User>{
         const url = `${this.backendApiUrl}/get-user`;
         return this.http.get<User>(url)
     }
 
-    postTest(userNameGiven: String, emailGiven: String, passwordGiven: String){
+    sendUsers(userNameGiven: String, emailGiven: String, passwordGiven: String){
         const data = {"userName": userNameGiven, "email": emailGiven, "password": passwordGiven};
         let config = { headers: new HttpHeaders().set("Content-Type", "application/json") };
         const url = `${this.backendApiUrl}/create-user`;
@@ -32,14 +32,14 @@ export class BackendService {
         )
     }
 
-    getTest2(): Observable<string[]>{
+    getNameTable(): Observable<string[]>{
         const url = `${this.backendApiUrl}/get-tables`;
         return this.http.get<string[]>(url)
 
         
     }
 
-    postTest2(dataGiven: String){
+    sendCommit(dataGiven: String){
         const data = {"container": dataGiven};
         let config = { headers: new HttpHeaders().set("Content-Type", "application/json") };
         const url = `${this.backendApiUrl}/send-commit`;
@@ -53,6 +53,11 @@ export class BackendService {
         )
     }
 
-    
+    getXml(): Observable<string[][]>{
+        const url = `${this.backendApiUrl}/get-xml`;
+        return this.http.get<string[][]>(url)
+
+        
+    }
     
 }
