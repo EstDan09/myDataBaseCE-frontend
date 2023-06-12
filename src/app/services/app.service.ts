@@ -13,9 +13,10 @@ export class BackendService {
 
     constructor(private http: HttpClient) { }
 
-    getUser(): Observable<User>{
-        const url = `${this.backendApiUrl}/get-user`;
-        return this.http.get<User>(url)
+    getUser(userGiven:string): Observable<string>{
+        const url = `${this.backendApiUrl}/get-user?look=${userGiven}`;
+        let config = { headers: new HttpHeaders().set("Accept", "*/*") };
+        return this.http.get<string>(url, config)
     }
 
     sendUsers(userNameGiven: String, emailGiven: String, passwordGiven: String){
@@ -40,9 +41,9 @@ export class BackendService {
     }
 
     sendCommit(dataGiven: String){
-        const data = {"container": dataGiven};
+        const data = {"data": dataGiven};
         let config = { headers: new HttpHeaders().set("Content-Type", "application/json") };
-        const url = `${this.backendApiUrl}/send-commit`;
+        const url = `${this.backendApiUrl}/strip`;
         return this.http.post(url, data, config).subscribe(
             res =>{
                 console.log(res);
@@ -53,11 +54,18 @@ export class BackendService {
         )
     }
 
-    getXml(): Observable<string[][]>{
-        const url = `${this.backendApiUrl}/get-xml`;
-        return this.http.get<string[][]>(url)
-
-        
+    getXml(dataGiven:String): Observable<string[][]>{
+        const url = `${this.backendApiUrl}/get-xml-data?xmlName=${dataGiven}`;
+        let config = { headers: new HttpHeaders().set("Accept", "*/*") };
+        return this.http.get<string[][]>(url, config)
     }
+
+    getUserArduino(): Observable<string>{
+        const pep="arduinando"
+        const url = `${this.backendApiUrl}/get-user?look=${pep}`;
+        let config = { headers: new HttpHeaders().set("Accept", "*/*") };
+        return this.http.get<string>(url, config)
+    }
+
     
 }
