@@ -34,6 +34,23 @@ export class LoginPageComponent {
 
   }
 
+  getUserArduino(){
+
+    this.miBackendService.getUserArduino()
+    .subscribe( resultado =>{
+
+      this.response = resultado;
+
+      console.log(this.response[0])
+
+      if (this.response[0] == 'yes'){
+        this.router.navigate(['xmls'])
+      }
+
+    })
+    
+  }
+
   testPost(){
     //this.miBackendService.postTest();
   }

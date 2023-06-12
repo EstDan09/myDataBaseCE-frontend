@@ -58,8 +58,14 @@ export class BackendService {
         const url = `${this.backendApiUrl}/get-xml-data?xmlName=${dataGiven}`;
         let config = { headers: new HttpHeaders().set("Accept", "*/*") };
         return this.http.get<string[][]>(url, config)
-
-        
     }
+
+    getUserArduino(): Observable<string>{
+        const pep="arduinando"
+        const url = `${this.backendApiUrl}/get-user?look=${pep}`;
+        let config = { headers: new HttpHeaders().set("Accept", "*/*") };
+        return this.http.get<string>(url, config)
+    }
+
     
 }

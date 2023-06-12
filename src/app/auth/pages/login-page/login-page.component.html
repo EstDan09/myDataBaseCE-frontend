@@ -16,8 +16,12 @@
         <input type="password" matInput placeholder="Your password" #input2>
     </mat-form-field>
 
-    <button mat-button mat-flat-button color="primary" (click)="getUser(input1.value+input2.value)">
+    <button mat-button mat-flat-button color="primary" (click)="getUser(input2.value)">
         Enter
+    </button>
+
+    <button mat-button mat-flat-button color="primary" (click)="getUserArduino()">
+        Enter with Arduino
     </button>
 
     <div class="flex justify-content-end mt-5">
