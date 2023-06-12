@@ -11,11 +11,10 @@ import { ContentObserver } from '@angular/cdk/observers';
   ]
 })
 export class MainPageComponent {
-
   words:string[] = ["hola"]
   dataGiven: string = ''
   arn:string[][] = [["hen", "hon", "wer"], ["hol", "art", "erw"], ["dad", "ddd", "wep"], ["dad", "ddd", "wep"]]
-  colData : Columnoide[] = [{'Columna1': "Title", 'Columna2': "Values"}]
+  colData : Columnoide[] = []
   colDataTemp2 : Columnoide[] = []
   colDataTemp: Columnoide[] = []
   displayedColumns: string[] = ['Columna1', 'Columna2', 'Columna3', 'Columna4','Columna5','Columna6'];
@@ -33,11 +32,6 @@ export class MainPageComponent {
       this.words = resultado;
     })
 
-    
-    //this.colData = [{'Columna1': this.arn[0][0], 'Columna2':this.arn[0][1], 'Columna3':this.arn[0][2]},
-    //{'Columna1': this.arn[1][0], 'Columna2':this.arn[1][1], 'Columna3':this.arn[1][2]},
-    //{'Columna1': this.arn[2][0], 'Columna2':this.arn[2][1], 'Columna3':this.arn[2][2]}]
-
   }
 
   sendCommit(dataGiven: string){
@@ -46,7 +40,7 @@ export class MainPageComponent {
     this.miBackendService.sendCommit(dataGiven);
   }
 
-  diosPorfa(dataGiven:string){
+  loadTable(dataGiven:string){
     this.miBackendService.getXml(dataGiven).subscribe( resultado =>{
       this.arn = resultado;
       console.log("1:",dataGiven)
@@ -62,7 +56,7 @@ export class MainPageComponent {
       console.log("4:",sizeOut)
       console.log("5:",sizeIn)
 
-      this.colData = [{'Columna1': "Title", 'Columna2': "Values"}]
+      this.colData = []
 
       if (sizeOut == 1){
         
@@ -866,6 +860,12 @@ export class MainPageComponent {
 
   }
 
+  reload(){
+    this.miBackendService.getNameTable()
+    .subscribe( resultado =>{
+      this.words = resultado;
+    })
+  }
 
   
   

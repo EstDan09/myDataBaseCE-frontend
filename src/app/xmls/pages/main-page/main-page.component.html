@@ -9,7 +9,7 @@
                 <span>Tablas Creadas</span>
                 <span class="spacer"></span>
             
-                <button mat-icon-button (click)="sidenav.toggle()">
+                <button mat-icon-button (click)="sidenav.toggle(); reload()">
                     <mat-icon>menu</mat-icon>
                 </button>
     
@@ -17,7 +17,7 @@
     
             <mat-nav-list>
                 <mat-list-item *ngFor="let item of words"
-                (click)="sidenav.toggle(); diosPorfa(item)"
+                (click)="sidenav.toggle(); loadTable(item); reload()"
                 >
                     <mat-icon>label</mat-icon>
                     {{ item }}

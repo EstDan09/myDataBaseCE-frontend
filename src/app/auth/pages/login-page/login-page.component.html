@@ -7,17 +7,22 @@
     <span class="text-lg mb-4"></span>
 
     <mat-form-field>
-        <mat-label>E-mail</mat-label>
-        <input type="text" matInput placeholder="Your e-mail">
+        <mat-label>Username</mat-label>
+        <input type="text" matInput placeholder="Your username" #input1>
     </mat-form-field>
 
     <mat-form-field>
         <mat-label>Password</mat-label>
-        <input type="password" matInput placeholder="Your password">
+        <input type="password" matInput placeholder="Your password" #input2>
     </mat-form-field>
 
-    <button mat-button mat-flat-button color="primary" (click)="getUser()">
+    <button mat-button mat-flat-button color="primary" (click)="getUser(input1.value+input2.value)">
         Enter
     </button>
+
+    <div class="flex justify-content-end mt-5">
+        <a routerLink="/auth/sign">Need an account?</a>
+    </div>
+
 
 </div>
